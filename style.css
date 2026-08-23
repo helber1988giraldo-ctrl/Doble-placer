@@ -1,0 +1,508 @@
+/* ========================================
+   DOBLE PLACER
+   Colores principales
+   ======================================== */
+
+:root {
+    --rosa: #EFA3B8;
+    --rosa-claro: #F8D5DE;
+    --rosa-suave: #FCE9EE;
+    --rosa-oscuro: #C75B7A;
+
+    --dorado: #C9A24A;
+    --dorado-claro: #E5C978;
+
+    --cafe: #4A2525;
+    --cafe-medio: #7A4A42;
+
+    --crema: #FFF8F0;
+    --blanco: #FFFFFF;
+}
+
+
+/* ========================================
+   CONFIGURACIÓN GENERAL
+   ======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--crema);
+    color: var(--cafe);
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* ========================================
+   PORTADA
+   ======================================== */
+
+.hero {
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #FFFFFF 0%,
+            var(--rosa-suave) 45%,
+            var(--rosa-claro) 100%
+        );
+
+    position: relative;
+}
+
+
+/* Decoraciones doradas */
+
+.hero::before,
+.hero::after {
+    content: "✦";
+
+    position: absolute;
+
+    color: var(--dorado);
+
+    font-size: 35px;
+
+    opacity: 0.7;
+}
+
+.hero::before {
+    top: 20%;
+    left: 15%;
+}
+
+.hero::after {
+    bottom: 20%;
+    right: 15%;
+}
+
+
+.hero-contenido {
+    max-width: 750px;
+}
+
+
+/* Texto pequeño superior */
+
+.pequeno {
+    color: var(--dorado);
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+
+/* Nombre */
+
+.hero h1 {
+    font-size: 80px;
+
+    margin: 10px 0;
+
+    color: var(--cafe);
+
+    font-weight: normal;
+}
+
+
+/* Frase */
+
+.frase {
+    font-size: 22px;
+
+    color: var(--cafe-medio);
+
+    margin: 20px auto 40px;
+
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   BOTONES
+   ======================================== */
+
+.boton {
+    display: inline-block;
+
+    background-color: var(--rosa-oscuro);
+
+    color: var(--blanco);
+
+    text-decoration: none;
+
+    padding: 15px 32px;
+
+    border-radius: 30px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.boton:hover {
+    background-color: var(--cafe);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(74, 37, 37, 0.2);
+}
+
+
+/* Botón dorado */
+
+.boton-dorado {
+    background-color: var(--dorado);
+}
+
+
+.boton-dorado:hover {
+    background-color: var(--cafe);
+}
+
+
+/* ========================================
+   MENÚ
+   ======================================== */
+
+.menu {
+    padding: 100px 7%;
+
+    text-align: center;
+}
+
+
+.subtitulo {
+    color: var(--dorado);
+
+    letter-spacing: 5px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+
+.menu h2,
+.pedido h2 {
+    font-size: 42px;
+
+    font-weight: normal;
+
+    margin-top: 10px;
+
+    color: var(--cafe);
+}
+
+
+/* ========================================
+   PRODUCTOS
+   ======================================== */
+
+.productos {
+    max-width: 1100px;
+
+    margin: 60px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+.producto {
+    background-color: var(--blanco);
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    border: 1px solid var(--rosa-claro);
+
+    box-shadow:
+        0 10px 30px rgba(74, 37, 37, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.producto:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 40px rgba(74, 37, 37, 0.15);
+}
+
+
+/* Espacio donde estarán las fotos */
+
+.foto {
+    width: 100%;
+
+    height: 230px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--rosa-claro),
+            var(--rosa-suave)
+        );
+
+    border-radius: 14px;
+
+    font-size: 80px;
+}
+
+
+/* Nombre del producto */
+
+.producto h3 {
+    font-size: 21px;
+
+    font-weight: normal;
+
+    margin: 20px 0 10px;
+
+    color: var(--cafe);
+}
+
+
+/* Precio */
+
+.producto p {
+    color: var(--dorado);
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin: 0;
+}
+
+
+/* ========================================
+   SECCIÓN PEDIDO
+   ======================================== */
+
+.pedido {
+    text-align: center;
+
+    padding: 110px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--rosa-claro),
+            var(--rosa-suave)
+        );
+}
+
+
+.pedido p {
+    font-size: 18px;
+
+    color: var(--cafe-medio);
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+
+/* ========================================
+   INFORMACIÓN
+   ======================================== */
+
+.informacion {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 40px;
+
+    padding: 90px 7%;
+
+    text-align: center;
+
+    background-color: var(--crema);
+}
+
+
+.informacion h3 {
+    color: var(--cafe);
+
+    font-size: 22px;
+
+    font-weight: normal;
+}
+
+
+.informacion p {
+    color: var(--cafe-medio);
+
+    margin: 8px 0;
+}
+
+
+/* ========================================
+   PIE DE PÁGINA
+   ======================================== */
+
+footer {
+    background-color: var(--cafe);
+
+    color: var(--crema);
+
+    text-align: center;
+
+    padding: 45px 20px;
+}
+
+
+footer p:first-child {
+    color: var(--dorado-claro);
+
+    font-size: 27px;
+
+    margin-bottom: 10px;
+}
+
+
+footer p:last-child {
+    color: #E8D7CF;
+
+    margin: 0;
+}
+
+
+/* ========================================
+   ADAPTACIÓN PARA CELULARES
+   ======================================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 80vh;
+
+        padding: 50px 20px;
+    }
+
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+
+    .frase {
+        font-size: 18px;
+    }
+
+
+    .hero::before {
+        left: 8%;
+    }
+
+
+    .hero::after {
+        right: 8%;
+    }
+
+
+    .menu {
+        padding: 75px 20px;
+    }
+
+
+    .menu h2,
+    .pedido h2 {
+        font-size: 32px;
+    }
+
+
+    .productos {
+        grid-template-columns: 1fr;
+
+        max-width: 430px;
+    }
+
+
+    .informacion {
+        grid-template-columns: 1fr;
+
+        padding: 70px 20px;
+    }
+
+
+    .foto {
+        height: 250px;
+    }
+
+}
+
+
+/* ========================================
+   CELULARES MUY PEQUEÑOS
+   ======================================== */
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+
+    .pequeno {
+        font-size: 11px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .boton {
+        padding: 14px 24px;
+    }
+
+}
