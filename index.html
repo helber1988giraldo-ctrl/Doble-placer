@@ -5,30 +5,879 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Doble Placer | Postres en Cachipay</title>
 
-    <!-- =====================================================
-         FUENTES
-         ===================================================== -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
+          rel="stylesheet">
 
-    <!-- CSS -->
 
-    <link rel="stylesheet" href="style.css">
+<style>
+
+/* =====================================================
+   COLORES
+   ===================================================== */
+
+:root {
+
+    --crema: #f8eee7;
+
+    --crema-claro: #fffaf6;
+
+    --rosa: #d99aaa;
+
+    --rosa-claro: #efd0d5;
+
+    --cafe: #633c36;
+
+    --cafe-oscuro: #452b27;
+
+    --dorado: #c59a52;
+
+    --dorado-claro: #e2c483;
+
+}
+
+
+/* =====================================================
+   GENERAL
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    background: var(--crema);
+
+    color: var(--cafe);
+
+    font-family: "Cormorant Garamond", serif;
+
+}
+
+
+/* =====================================================
+   PORTADA
+   ===================================================== */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    text-align: center;
+
+    padding: 25px;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(197,154,82,.15),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(217,154,170,.16),
+            transparent 30%
+        ),
+
+        var(--crema);
+
+}
+
+
+.dorado-superior,
+.dorado-inferior {
+
+    color: var(--dorado);
+
+    font-size: 18px;
+
+    letter-spacing: 15px;
+
+}
+
+
+.hero-contenido {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.ornamento-linea {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    color: var(--dorado);
+
+}
+
+
+.ornamento-linea span {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: var(--dorado);
+
+}
+
+
+.ornamento-linea p {
+
+    letter-spacing: 5px;
+
+    font-size: 14px;
+
+}
+
+
+.logo {
+
+    width: min(330px, 80vw);
+
+    margin: 25px auto;
+
+    display: block;
+
+}
+
+
+.ornamento-central {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    color: var(--dorado);
+
+}
+
+
+.ornamento-central div {
+
+    width: 130px;
+
+    height: 1px;
+
+    background: var(--dorado);
+
+}
+
+
+.frase {
+
+    max-width: 450px;
+
+    font-size: 22px;
+
+    line-height: 1.5;
+
+    color: var(--cafe);
+
+}
+
+
+.boton {
+
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    background: var(--cafe);
+
+    color: white;
+
+    border: 1px solid var(--dorado);
+
+    text-decoration: none;
+
+    letter-spacing: 2px;
+
+    font-size: 15px;
+
+    transition: .3s;
+
+    cursor: pointer;
+
+}
+
+
+.boton:hover {
+
+    background: var(--dorado);
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =====================================================
+   MENÚ
+   ===================================================== */
+
+.menu {
+
+    padding: 100px 7%;
+
+}
+
+
+.titulo-seccion {
+
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 70px;
+
+}
+
+
+.decoracion {
+
+    color: var(--dorado);
+
+    font-size: 25px;
+
+}
+
+
+.subtitulo {
+
+    color: var(--dorado);
+
+    letter-spacing: 5px;
+
+    font-size: 14px;
+
+}
+
+
+.titulo-seccion h2 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(55px, 7vw, 90px);
+
+    font-weight: 400;
+
+    color: var(--cafe);
+
+    margin: 10px 0;
+
+}
+
+
+.descripcion-seccion {
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   PRODUCTOS
+   ===================================================== */
+
+.productos {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 45px 30px;
+
+}
+
+
+.producto {
+
+    background: var(--crema-claro);
+
+    border: 1px solid rgba(197,154,82,.7);
+
+    padding: 12px;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    transition: .4s;
+
+    position: relative;
+
+}
+
+
+.producto::before {
+
+    content: "✦";
+
+    position: absolute;
+
+    color: var(--dorado);
+
+    top: -17px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+}
+
+
+.producto:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+
+        0 20px 45px rgba(99,60,54,.15);
+
+}
+
+
+.foto {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+}
+
+
+.foto img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: .5s;
+
+}
+
+
+.producto:hover .foto img {
+
+    transform: scale(1.04);
+
+}
+
+
+.producto-info {
+
+    text-align: center;
+
+    padding: 20px 10px 18px;
+
+}
+
+
+.producto-info h3 {
+
+    font-size: 26px;
+
+    font-weight: 600;
+
+    margin: 5px 0 8px;
+
+    color: var(--cafe);
+
+}
+
+
+.precio {
+
+    color: var(--dorado);
+
+    font-size: 20px;
+
+}
+
+
+.ver-postre {
+
+    display: block;
+
+    margin-top: 12px;
+
+    color: var(--rosa);
+
+    letter-spacing: 2px;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   VENTANA DEL PRODUCTO
+   ===================================================== */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    z-index: 1000;
+
+    inset: 0;
+
+    background: rgba(69,43,39,.75);
+
+    padding: 30px;
+
+    overflow-y: auto;
+
+}
+
+
+.modal.activo {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.modal-contenido {
+
+    width: min(1000px, 100%);
+
+    background: var(--crema-claro);
+
+    border: 1px solid var(--dorado);
+
+    padding: 35px;
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+
+}
+
+
+.cerrar {
+
+    position: absolute;
+
+    right: 20px;
+
+    top: 15px;
+
+    border: none;
+
+    background: none;
+
+    color: var(--cafe);
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+}
+
+
+.modal-imagen {
+
+    width: 100%;
+
+}
+
+
+.modal-imagen img {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border: 1px solid var(--dorado);
+
+    padding: 7px;
+
+}
+
+
+.modal-info {
+
+    text-align: center;
+
+}
+
+
+.modal-info .subtitulo {
+
+    margin-bottom: 10px;
+
+}
+
+
+.modal-info h2 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(50px, 6vw, 80px);
+
+    font-weight: 400;
+
+    color: var(--cafe);
+
+    margin: 10px 0 20px;
+
+}
+
+
+.modal-ornamento {
+
+    color: var(--dorado);
+
+    margin: 15px 0;
+
+}
+
+
+.modal-descripcion {
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    color: var(--cafe);
+
+}
+
+
+.modal-linea {
+
+    width: 100px;
+
+    height: 1px;
+
+    background: var(--dorado);
+
+    margin: 25px auto;
+
+}
+
+
+.modal-precio {
+
+    font-size: 28px;
+
+    color: var(--cafe);
+
+    margin-bottom: 30px;
+
+}
+
+
+.volver {
+
+    display: block;
+
+    margin-top: 25px;
+
+    color: var(--cafe);
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+}
+
+
+.volver:hover {
+
+    color: var(--dorado);
+
+}
+
+
+/* =====================================================
+   PEDIDO
+   ===================================================== */
+
+.pedido {
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(197,154,82,.12),
+            transparent 40%
+        ),
+
+        var(--rosa-claro);
+
+}
+
+
+.pedido h2 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-weight: 400;
+
+    font-size: clamp(55px, 7vw, 90px);
+
+    margin: 10px 0;
+
+}
+
+
+.texto-pedido {
+
+    font-size: 21px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* =====================================================
+   INFORMACIÓN
+   ===================================================== */
+
+.informacion {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 80px 30px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 50px;
+
+    text-align: center;
+
+}
+
+
+.info {
+
+    padding: 20px;
+
+    border-top: 1px solid var(--dorado);
+
+}
+
+
+.icono {
+
+    color: var(--dorado);
+
+    font-size: 25px;
+
+}
+
+
+.info h3 {
+
+    font-size: 25px;
+
+    margin: 12px 0;
+
+}
+
+
+.info p {
+
+    font-size: 18px;
+
+    margin: 5px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer {
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    background: var(--cafe);
+
+    color: var(--crema);
+
+}
+
+
+.footer-logo {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 40px;
+
+    color: var(--dorado-claro);
+
+}
+
+
+.footer-ornamento {
+
+    color: var(--dorado);
+
+    letter-spacing: 8px;
+
+    margin: 15px 0;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+    .productos {
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+    .modal-contenido {
+
+        grid-template-columns: 1fr;
+
+        max-width: 600px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .productos {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+    }
+
+
+    .menu {
+
+        padding: 70px 20px;
+
+    }
+
+
+    .informacion {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .ornamento-linea span {
+
+        width: 40px;
+
+    }
+
+
+    .modal {
+
+        padding: 15px;
+
+    }
+
+
+    .modal-contenido {
+
+        padding: 25px 18px;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -36,570 +885,622 @@
 <body>
 
 
-    <!-- =====================================================
-         PORTADA
-         ===================================================== -->
+<!-- =====================================================
+     PORTADA
+     ===================================================== -->
 
-    <header class="hero">
+<header class="hero">
+
+    <div class="dorado-superior">
+
+        <span>✦</span>
+        <span>·</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+
+    </div>
 
 
-        <!-- Decoración dorada -->
+    <div class="hero-contenido">
 
-        <div class="dorado-superior">
+
+        <div class="ornamento-linea">
+
+            <span></span>
+
+            <p>POSTRES ARTESANALES</p>
+
+            <span></span>
+
+        </div>
+
+
+        <img
+            src="imgogo.jpeg"
+            alt="Doble Placer"
+            class="logo">
+
+
+        <div class="ornamento-central">
 
             <span>✦</span>
-            <span>·</span>
-            <span>✧</span>
-            <span>·</span>
+
+            <div></div>
+
             <span>✦</span>
 
         </div>
 
 
+        <p class="frase">
 
-        <div class="hero-contenido">
+            Un pequeño placer para
+            hacer especial tu día
 
-
-            <!-- Texto superior -->
-
-            <div class="ornamento-linea">
-
-                <span></span>
-
-                <p>
-                    POSTRES ARTESANALES
-                </p>
-
-                <span></span>
-
-            </div>
+        </p>
 
 
+        <a href="#menu" class="boton">
 
-            <!-- =================================================
-                 LOGO
-                 ================================================= -->
+            DESCUBRIR EL MENÚ
 
-            <div class="logo-placeholder">
+        </a>
+
+    </div>
+
+
+    <div class="dorado-inferior">
+
+        <span>✦</span>
+        <span>·</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MENÚ
+     ===================================================== -->
+
+<main>
+
+<section id="menu" class="menu">
+
+
+    <div class="titulo-seccion">
+
+        <span class="decoracion">✦</span>
+
+        <p class="subtitulo">
+            NUESTROS POSTRES
+        </p>
+
+        <h2>
+            Un dulce placer
+        </h2>
+
+        <p class="descripcion-seccion">
+
+            Descubre nuestra selección de postres
+            preparados especialmente para ti.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="productos">
+
+
+        <!-- 1 -->
+
+        <div
+            class="producto"
+            onclick="abrirProducto(0)">
+
+            <div class="foto">
 
                 <img
-                    src="imgogo.jpeg"
-                    alt="Doble Placer"
-                    class="logo">
+                    src="Postre 1.jpeg"
+                    alt="Fresas con crema">
 
             </div>
 
+            <div class="producto-info">
 
+                <h3>
+                    Fresas con crema
+                </h3>
 
-            <!-- Ornamento -->
-
-            <div class="ornamento-central">
-
-                <span>✦</span>
-
-                <div></div>
-
-                <span>✦</span>
-
-            </div>
-
-
-
-            <!-- Frase -->
-
-            <p class="frase">
-
-                Un pequeño placer para
-                hacer especial tu día
-
-            </p>
-
-
-
-            <!-- Botón -->
-
-            <a
-                href="#menu"
-                class="boton">
-
-                DESCUBRIR EL MENÚ
-
-            </a>
-
-
-        </div>
-
-
-
-        <!-- Decoración inferior -->
-
-        <div class="dorado-inferior">
-
-            <span>✦</span>
-            <span>·</span>
-            <span>✧</span>
-            <span>·</span>
-            <span>✦</span>
-
-        </div>
-
-
-    </header>
-
-
-
-    <!-- =====================================================
-         CONTENIDO PRINCIPAL
-         ===================================================== -->
-
-    <main>
-
-
-        <!-- =================================================
-             MENÚ
-             ================================================= -->
-
-        <section
-            id="menu"
-            class="menu">
-
-
-            <!-- Título -->
-
-            <div class="titulo-seccion">
-
-                <span class="decoracion">
-                    ✦
+                <span class="precio">
+                    $14.000
                 </span>
 
-                <p class="subtitulo">
-                    NUESTROS POSTRES
-                </p>
-
-                <h2>
-                    Un dulce placer
-                </h2>
-
-                <p class="descripcion-seccion">
-
-                    Descubre nuestra selección de postres,
-                    preparados para endulzar tus momentos.
-
-                </p>
+                <span class="ver-postre">
+                    VER POSTRE →
+                </span>
 
             </div>
 
+        </div>
 
 
-            <!-- =================================================
-                 PRODUCTOS
-                 ================================================= -->
 
-            <div class="productos">
+        <!-- 2 -->
 
+        <div
+            class="producto"
+            onclick="abrirProducto(1)">
 
+            <div class="foto">
 
-                <!-- =================================================
-                     POSTRE 1 — FRESAS CON CREMA
-                     ================================================= -->
-
-                <a
-                    href="postre-1.html"
-                    class="producto">
-
-                    <div class="foto">
-
-                        <img
-                            src="Postre 1.jpeg"
-                            alt="Fresas con crema">
-
-                    </div>
-
-
-                    <div class="producto-info">
-
-                        <h3>
-                            Fresas con crema
-                        </h3>
-
-
-                        <span class="precio">
-                            $14.000
-                        </span>
-
-
-                        <span class="ver-postre">
-                            VER POSTRE →
-                        </span>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     POSTRE 2 — POSTRE DE AREQUIPE
-                     ================================================= -->
-
-                <a
-                    href="postre-2.html"
-                    class="producto">
-
-                    <div class="foto">
-
-                        <img
-                            src="Postre 2.jpeg"
-                            alt="Postre de arequipe">
-
-                    </div>
-
-
-                    <div class="producto-info">
-
-                        <h3>
-                            Postre de arequipe
-                        </h3>
-
-
-                        <span class="precio">
-                            $10.000
-                        </span>
-
-
-                        <span class="ver-postre">
-                            VER POSTRE →
-                        </span>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     POSTRE 3 — GOMITAS ENCHILADAS
-                     ================================================= -->
-
-                <a
-                    href="postre-3.html"
-                    class="producto">
-
-                    <div class="foto">
-
-                        <img
-                            src="Postre 3.jpeg"
-                            alt="Gomitas enchiladas">
-
-                    </div>
-
-
-                    <div class="producto-info">
-
-                        <h3>
-                            Gomitas enchiladas
-                        </h3>
-
-
-                        <span class="precio">
-                            $8.000
-                        </span>
-
-
-                        <span class="ver-postre">
-                            VER POSTRE →
-                        </span>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     POSTRE 4 — FRUTOS ROJOS
-                     ================================================= -->
-
-                <a
-                    href="postre-4.html"
-                    class="producto">
-
-                    <div class="foto">
-
-                        <img
-                            src="Postre 4.jpeg"
-                            alt="Postre de frutos rojos">
-
-                    </div>
-
-
-                    <div class="producto-info">
-
-                        <h3>
-                            Postre de frutos rojos
-                        </h3>
-
-
-                        <span class="precio">
-                            $10.000
-                        </span>
-
-
-                        <span class="ver-postre">
-                            VER POSTRE →
-                        </span>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     POSTRE 5 — GELATINA EN MOSAICO
-                     ================================================= -->
-
-                <a
-                    href="postre-5.html"
-                    class="producto">
-
-                    <div class="foto">
-
-                        <img
-                            src="Postre 5.jpeg"
-                            alt="Gelatina en mosaico">
-
-                    </div>
-
-
-                    <div class="producto-info">
-
-                        <h3>
-                            Gelatina en mosaico
-                        </h3>
-
-
-                        <span class="precio">
-                            $8.000
-                        </span>
-
-
-                        <span class="ver-postre">
-                            VER POSTRE →
-                        </span>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     POSTRE 6 — LECHE KLIM
-                     ================================================= -->
-
-                <a
-                    href="postre-6.html"
-                    class="producto">
-
-                    <div class="foto">
-
-                        <img
-                            src="Postre 6.jpeg"
-                            alt="Postre de leche klim">
-
-                    </div>
-
-
-                    <div class="producto-info">
-
-                        <h3>
-                            Postre de leche klim
-                        </h3>
-
-
-                        <span class="precio">
-                            $10.000
-                        </span>
-
-
-                        <span class="ver-postre">
-                            VER POSTRE →
-                        </span>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     POSTRE 7 — CREPAS DE AVELLANAS
-                     ================================================= -->
-
-                <a
-                    href="postre-7.html"
-                    class="producto">
-
-                    <div class="foto">
-
-                        <img
-                            src="Postre 7.jpeg"
-                            alt="Crepas de avellanas">
-
-                    </div>
-
-
-                    <div class="producto-info">
-
-                        <h3>
-                            Crepas de avellanas
-                        </h3>
-
-
-                        <span class="precio">
-                            $12.000
-                        </span>
-
-
-                        <span class="ver-postre">
-                            VER POSTRE →
-                        </span>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     POSTRE 8 — OREO
-                     ================================================= -->
-
-                <a
-                    href="postre-8.html"
-                    class="producto">
-
-                    <div class="foto">
-
-                        <img
-                            src="Postre 8.jpeg"
-                            alt="Postre de oreo">
-
-                    </div>
-
-
-                    <div class="producto-info">
-
-                        <h3>
-                            Postre de oreo
-                        </h3>
-
-
-                        <span class="precio">
-                            $10.000
-                        </span>
-
-
-                        <span class="ver-postre">
-                            VER POSTRE →
-                        </span>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     POSTRE 9 — LIMÓN
-                     ================================================= -->
-
-                <a
-                    href="postre-9.html"
-                    class="producto">
-
-                    <div class="foto">
-
-                        <img
-                            src="Postr 9.jpeg"
-                            alt="Postre de limón">
-
-                    </div>
-
-
-                    <div class="producto-info">
-
-                        <h3>
-                            Postre de limón
-                        </h3>
-
-
-                        <span class="precio">
-                            $10.000
-                        </span>
-
-
-                        <span class="ver-postre">
-                            VER POSTRE →
-                        </span>
-
-                    </div>
-
-                </a>
-
+                <img
+                    src="Postre 2.jpeg"
+                    alt="Postre de arequipe">
 
             </div>
 
-        </section>
+            <div class="producto-info">
 
+                <h3>
+                    Postre de arequipe
+                </h3>
 
+                <span class="precio">
+                    $10.000
+                </span>
 
-        <!-- =====================================================
-             SECCIÓN DE PEDIDOS
-             ===================================================== -->
-
-        <section class="pedido">
-
-
-            <div class="salpicado-pedido">
-
-                <span>✦</span>
-                <span>·</span>
-                <span>✧</span>
-                <span>·</span>
-                <span>✦</span>
+                <span class="ver-postre">
+                    VER POSTRE →
+                </span>
 
             </div>
 
+        </div>
+
+
+
+        <!-- 3 -->
+
+        <div
+            class="producto"
+            onclick="abrirProducto(2)">
+
+            <div class="foto">
+
+                <img
+                    src="Postre 3.jpeg"
+                    alt="Gomitas enchiladas">
+
+            </div>
+
+            <div class="producto-info">
+
+                <h3>
+                    Gomitas enchiladas
+                </h3>
+
+                <span class="precio">
+                    $8.000
+                </span>
+
+                <span class="ver-postre">
+                    VER POSTRE →
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 4 -->
+
+        <div
+            class="producto"
+            onclick="abrirProducto(3)">
+
+            <div class="foto">
+
+                <img
+                    src="Postre 4.jpeg"
+                    alt="Postre de frutos rojos">
+
+            </div>
+
+            <div class="producto-info">
+
+                <h3>
+                    Postre de frutos rojos
+                </h3>
+
+                <span class="precio">
+                    $10.000
+                </span>
+
+                <span class="ver-postre">
+                    VER POSTRE →
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 5 -->
+
+        <div
+            class="producto"
+            onclick="abrirProducto(4)">
+
+            <div class="foto">
+
+                <img
+                    src="Postre 5.jpeg"
+                    alt="Gelatina en mosaico">
+
+            </div>
+
+            <div class="producto-info">
+
+                <h3>
+                    Gelatina en mosaico
+                </h3>
+
+                <span class="precio">
+                    $8.000
+                </span>
+
+                <span class="ver-postre">
+                    VER POSTRE →
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 6 -->
+
+        <div
+            class="producto"
+            onclick="abrirProducto(5)">
+
+            <div class="foto">
+
+                <img
+                    src="Postre 6.jpeg"
+                    alt="Postre de leche klim">
+
+            </div>
+
+            <div class="producto-info">
+
+                <h3>
+                    Postre de leche klim
+                </h3>
+
+                <span class="precio">
+                    $10.000
+                </span>
+
+                <span class="ver-postre">
+                    VER POSTRE →
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 7 -->
+
+        <div
+            class="producto"
+            onclick="abrirProducto(6)">
+
+            <div class="foto">
+
+                <img
+                    src="Postre 7.jpeg"
+                    alt="Crepas de avellanas">
+
+            </div>
+
+            <div class="producto-info">
+
+                <h3>
+                    Crepas de avellanas
+                </h3>
+
+                <span class="precio">
+                    $12.000
+                </span>
+
+                <span class="ver-postre">
+                    VER POSTRE →
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 8 -->
+
+        <div
+            class="producto"
+            onclick="abrirProducto(7)">
+
+            <div class="foto">
+
+                <img
+                    src="Postre 8.jpeg"
+                    alt="Postre de oreo">
+
+            </div>
+
+            <div class="producto-info">
+
+                <h3>
+                    Postre de oreo
+                </h3>
+
+                <span class="precio">
+                    $10.000
+                </span>
+
+                <span class="ver-postre">
+                    VER POSTRE →
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 9 -->
+
+        <div
+            class="producto"
+            onclick="abrirProducto(8)">
+
+            <div class="foto">
+
+                <img
+                    src="Postre 9.jpeg"
+                    alt="Postre de limón">
+
+            </div>
+
+            <div class="producto-info">
+
+                <h3>
+                    Postre de limón
+                </h3>
+
+                <span class="precio">
+                    $10.000
+                </span>
+
+                <span class="ver-postre">
+                    VER POSTRE →
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PEDIDO
+     ===================================================== -->
+
+<section class="pedido">
+
+
+    <div class="dorado-superior">
+
+        ✦ · ✧ · ✦
+
+    </div>
+
+
+    <p class="subtitulo">
+        ¿SE TE ANTOJÓ?
+    </p>
+
+
+    <h2>
+
+        Un placer está
+        esperando por ti
+
+    </h2>
+
+
+    <p class="texto-pedido">
+
+        Haz tu pedido y disfruta
+        nuestros postres en Cachipay.
+
+    </p>
+
+
+    <a
+        href="https://wa.me/573227196957"
+        target="_blank"
+        class="boton">
+
+        PEDIR POR WHATSAPP
+
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     INFORMACIÓN
+     ===================================================== -->
+
+<section class="informacion">
+
+
+    <div class="info">
+
+        <span class="icono">✦</span>
+
+        <h3>
+            Estamos en
+        </h3>
+
+        <p>
+            Cachipay
+        </p>
+
+        <p>
+            Cundinamarca
+        </p>
+
+        <p>
+            Cachipay centro
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <span class="icono">♡</span>
+
+        <h3>
+            Horario
+        </h3>
+
+        <p>
+            Todos los días
+        </p>
+
+        <p>
+            7:00 a. m. — 9:00 p. m.
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <span class="icono">✧</span>
+
+        <h3>
+            Síguenos
+        </h3>
+
+        <p>
+            @doble._.placer
+        </p>
+
+        <p>
+            Instagram · TikTok
+        </p>
+
+    </div>
+
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     VENTANA DE PRODUCTOS
+     ===================================================== -->
+
+<div
+    id="modal"
+    class="modal"
+    onclick="cerrarSiFuera(event)">
+
+
+    <div class="modal-contenido">
+
+
+        <button
+            class="cerrar"
+            onclick="cerrarProducto()">
+
+            ×
+
+        </button>
+
+
+        <div class="modal-imagen">
+
+            <img
+                id="modalImagen"
+                src=""
+                alt="">
+
+        </div>
+
+
+        <div class="modal-info">
 
 
             <p class="subtitulo">
-                ¿SE TE ANTOJÓ?
+                DOBLE PLACER
             </p>
 
 
+            <div class="modal-ornamento">
 
-            <h2>
+                ✦ ───── ✧ ───── ✦
 
-                Un placer está
-                esperando por ti
+            </div>
 
+
+            <h2 id="modalNombre">
             </h2>
 
 
-
-            <p class="texto-pedido">
-
-                Haz tu pedido y disfruta
-                nuestros postres en Cachipay.
-
+            <p
+                id="modalDescripcion"
+                class="modal-descripcion">
             </p>
 
 
+            <div class="modal-linea"></div>
+
+
+            <p
+                id="modalPrecio"
+                class="modal-precio">
+            </p>
+
 
             <a
-                href="https://wa.me/573227196957"
+                id="modalWhatsApp"
+                href="#"
                 target="_blank"
                 class="boton">
 
@@ -608,147 +1509,301 @@
             </a>
 
 
-        </section>
+            <a
+                href="#menu"
+                onclick="cerrarProducto()"
+                class="volver">
 
+                ← Seguir viendo postres
 
+            </a>
 
-        <!-- =====================================================
-             INFORMACIÓN
-             ===================================================== -->
-
-        <section class="informacion">
-
-
-            <!-- Ubicación -->
-
-            <div class="info">
-
-                <span class="icono">
-                    ✦
-                </span>
-
-
-                <h3>
-                    Estamos en
-                </h3>
-
-
-                <p>
-                    Cachipay
-                </p>
-
-
-                <p>
-                    Cundinamarca
-                </p>
-
-
-                <p>
-                    Cachipay centro
-                </p>
-
-            </div>
-
-
-
-            <!-- Horario -->
-
-            <div class="info">
-
-                <span class="icono">
-                    ♡
-                </span>
-
-
-                <h3>
-                    Horario
-                </h3>
-
-
-                <p>
-                    Todos los días
-                </p>
-
-
-                <p>
-                    7:00 a. m. — 9:00 p. m.
-                </p>
-
-            </div>
-
-
-
-            <!-- Redes -->
-
-            <div class="info">
-
-                <span class="icono">
-                    ✧
-                </span>
-
-
-                <h3>
-                    Síguenos
-                </h3>
-
-
-                <p>
-                    @doble._.placer
-                </p>
-
-
-                <p>
-                    Instagram · TikTok
-                </p>
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =====================================================
-         FOOTER
-         ===================================================== -->
-
-    <footer>
-
-
-        <div class="footer-logo">
-
-            <span>
-                Doble
-            </span>
-
-
-            <span>
-                Placer
-            </span>
 
         </div>
 
 
+    </div>
 
-        <div class="footer-ornamento">
-
-            ✦ · ✧ · ✦
-
-        </div>
+</div>
 
 
 
-        <p>
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
-            Postres hechos con amor en Cachipay
-
-        </p>
+<footer>
 
 
-    </footer>
+    <div class="footer-logo">
+
+        <span>Doble</span>
+
+        <span>Placer</span>
+
+    </div>
+
+
+    <div class="footer-ornamento">
+
+        ✦ · ✧ · ✦
+
+    </div>
+
+
+    <p>
+
+        Postres hechos con amor en Cachipay
+
+    </p>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script>
+
+
+const productos = [
+
+    {
+
+        nombre: "Fresas con crema",
+
+        imagen: "Postre 1.jpeg",
+
+        precio: "$14.000",
+
+        descripcion:
+        "Deliciosas fresas acompañadas de una suave y cremosa preparación, perfecta para disfrutar cada cucharada."
+
+    },
+
+
+    {
+
+        nombre: "Postre de arequipe",
+
+        imagen: "Postre 2.jpeg",
+
+        precio: "$10.000",
+
+        descripcion:
+        "Un postre suave y cremoso con el sabor dulce y tradicional del arequipe, perfecto para disfrutar en cualquier momento."
+
+    },
+
+
+    {
+
+        nombre: "Gomitas enchiladas",
+
+        imagen: "Postre 3.jpeg",
+
+        precio: "$8.000",
+
+        descripcion:
+        "Una combinación divertida de gomitas dulces con un toque picante y atrevido, ideal para quienes disfrutan sabores diferentes."
+
+    },
+
+
+    {
+
+        nombre: "Postre de frutos rojos",
+
+        imagen: "Postre 4.jpeg",
+
+        precio: "$10.000",
+
+        descripcion:
+        "Un postre delicado y cremoso con el delicioso sabor de los frutos rojos, creando un equilibrio entre dulzura y frescura."
+
+    },
+
+
+    {
+
+        nombre: "Gelatina en mosaico",
+
+        imagen: "Postre 5.jpeg",
+
+        precio: "$8.000",
+
+        descripcion:
+        "Un postre colorido y delicado que combina diferentes sabores y texturas en una presentación llena de encanto."
+
+    },
+
+
+    {
+
+        nombre: "Postre de leche klim",
+
+        imagen: "Postre 6.jpeg",
+
+        precio: "$10.000",
+
+        descripcion:
+        "Un postre suave, cremoso y delicado, con un sabor lácteo que lo convierte en una opción dulce y reconfortante."
+
+    },
+
+
+    {
+
+        nombre: "Crepas de avellanas",
+
+        imagen: "Postre 7.jpeg",
+
+        precio: "$12.000",
+
+        descripcion:
+        "Delicadas crepas acompañadas de un irresistible sabor a avellanas, perfectas para disfrutar un momento especialmente dulce."
+
+    },
+
+
+    {
+
+        nombre: "Postre de oreo",
+
+        imagen: "Postre 8.jpeg",
+
+        precio: "$10.000",
+
+        descripcion:
+        "Una combinación cremosa y deliciosa con el inconfundible sabor de Oreo, perfecta para los amantes del chocolate."
+
+    },
+
+
+    {
+
+        nombre: "Postre de limón",
+
+        imagen: "Postre 9.jpeg",
+
+        precio: "$10.000",
+
+        descripcion:
+        "Un postre suave y cremoso con el toque fresco y ligeramente cítrico del limón, ideal para quienes disfrutan sabores refrescantes."
+
+    }
+
+];
+
+
+
+/* =====================================================
+   ABRIR PRODUCTO
+   ===================================================== */
+
+function abrirProducto(numero) {
+
+
+    const producto = productos[numero];
+
+
+    document.getElementById("modalImagen").src =
+        producto.imagen;
+
+
+    document.getElementById("modalImagen").alt =
+        producto.nombre;
+
+
+    document.getElementById("modalNombre").textContent =
+        producto.nombre;
+
+
+    document.getElementById("modalDescripcion").textContent =
+        producto.descripcion;
+
+
+    document.getElementById("modalPrecio").textContent =
+        producto.precio;
+
+
+    const mensaje =
+        "Hola, quiero pedir " +
+        producto.nombre +
+        " de Doble Placer.";
+
+
+    document.getElementById("modalWhatsApp").href =
+        "https://wa.me/573227196957?text=" +
+        encodeURIComponent(mensaje);
+
+
+    document.getElementById("modal").classList.add("activo");
+
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+
+/* =====================================================
+   CERRAR PRODUCTO
+   ===================================================== */
+
+function cerrarProducto() {
+
+    document.getElementById("modal")
+        .classList.remove("activo");
+
+
+    document.body.style.overflow = "";
+
+}
+
+
+
+/* =====================================================
+   CERRAR AL HACER CLIC AFUERA
+   ===================================================== */
+
+function cerrarSiFuera(event) {
+
+    if (
+        event.target ===
+        document.getElementById("modal")
+    ) {
+
+        cerrarProducto();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   CERRAR CON ESC
+   ===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            cerrarProducto();
+
+        }
+
+    }
+);
+
+
+</script>
 
 
 </body>
