@@ -1,281 +1,516 @@
-/* ========================================
+/* =========================================================
    DOBLE PLACER
-   Colores principales
-   ======================================== */
+   IDENTIDAD VISUAL COMPLETA
+   Rosa · Crema · Café · Dorado
+   Estilo: boutique / romántico / maximalista
+   ========================================================= */
+
+
+/* =========================================================
+   1. VARIABLES DE COLOR
+   ========================================================= */
 
 :root {
-    --rosa: #EFA3B8;
-    --rosa-claro: #F8D5DE;
-    --rosa-suave: #FCE9EE;
-    --rosa-oscuro: #C75B7A;
 
-    --dorado: #C9A24A;
-    --dorado-claro: #E5C978;
+    --rosa-principal: #D8899E;
+    --rosa-medio: #E6A6B5;
+    --rosa-claro: #F4D4DC;
+    --rosa-palido: #FBECEF;
+    --rosa-profundo: #B75D76;
 
-    --cafe: #4A2525;
-    --cafe-medio: #7A4A42;
+    --dorado: #C7A04A;
+    --dorado-claro: #E3C873;
+    --dorado-brillante: #F3E2A7;
+    --dorado-oscuro: #9E7A2E;
 
-    --crema: #FFF8F0;
+    --cafe: #4A2925;
+    --cafe-medio: #68413B;
+    --cafe-claro: #8B665E;
+
+    --crema: #FFF9F2;
+    --crema-oscuro: #F4E8DA;
+
     --blanco: #FFFFFF;
+
 }
 
 
-/* ========================================
-   CONFIGURACIÓN GENERAL
-   ======================================== */
+/* =========================================================
+   2. RESET
+   ========================================================= */
 
 * {
+
     box-sizing: border-box;
+
 }
+
 
 html {
+
     scroll-behavior: smooth;
+
 }
+
 
 body {
+
     margin: 0;
+
+    padding: 0;
+
     background-color: var(--crema);
+
     color: var(--cafe);
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
 }
 
 
-/* ========================================
-   PORTADA
-   ======================================== */
+img {
+
+    max-width: 100%;
+
+}
+
+
+a {
+
+    color: inherit;
+
+}
+
+
+/* =========================================================
+   3. PORTADA
+   ========================================================= */
 
 .hero {
-    min-height: 90vh;
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
 
-    padding: 60px 20px;
+    padding: 110px 30px;
+
 
     background:
+
         radial-gradient(
             circle at center,
-            #FFFFFF 0%,
-            var(--rosa-suave) 45%,
-            var(--rosa-claro) 100%
+            #fffefa 0%,
+            #fff8f4 28%,
+            #fbecef 65%,
+            #f3d5dd 100%
         );
 
-    position: relative;
 }
 
 
-/* Decoraciones doradas */
+/* =========================================================
+   4. MARCOS DORADOS
+   ========================================================= */
 
-.hero::before,
-.hero::after {
-    content: "✦";
+.hero::before {
+
+    content: "";
 
     position: absolute;
 
-    color: var(--dorado);
+    inset: 27px;
 
-    font-size: 35px;
+    border:
+        1px solid
+        rgba(199, 160, 74, 0.55);
 
-    opacity: 0.7;
+    pointer-events: none;
+
 }
 
-.hero::before {
-    top: 20%;
-    left: 15%;
-}
 
 .hero::after {
-    bottom: 20%;
-    right: 15%;
+
+    content: "";
+
+    position: absolute;
+
+    inset: 40px;
+
+    border:
+        1px solid
+        rgba(199, 160, 74, 0.25);
+
+    pointer-events: none;
+
 }
 
+
+/* =========================================================
+   5. CONTENIDO HERO
+   ========================================================= */
 
 .hero-contenido {
-    max-width: 750px;
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+
+    max-width: 850px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
 }
 
 
-/* Texto pequeño superior */
+/* =========================================================
+   6. DECORACIÓN DORADA SUPERIOR
+   ========================================================= */
 
-.pequeno {
+.dorado-superior {
+
+    position: absolute;
+
+    top: 62px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
     color: var(--dorado);
 
-    font-size: 14px;
+    font-family: Georgia, serif;
 
-    letter-spacing: 5px;
+    z-index: 10;
 
-    font-weight: bold;
-
-    margin-bottom: 15px;
 }
 
 
-/* Nombre */
+.dorado-superior span {
 
-.hero h1 {
-    font-size: 80px;
+    display: block;
 
-    margin: 10px 0;
-
-    color: var(--cafe);
-
-    font-weight: normal;
 }
 
 
-/* Frase */
+.dorado-superior span:nth-child(1),
+.dorado-superior span:nth-child(5) {
+
+    font-size: 25px;
+
+}
+
+
+.dorado-superior span:nth-child(2),
+.dorado-superior span:nth-child(4) {
+
+    font-size: 9px;
+
+}
+
+
+.dorado-superior span:nth-child(3) {
+
+    font-size: 16px;
+
+}
+
+
+/* =========================================================
+   7. TEXTO "POSTRES ARTESANALES"
+   ========================================================= */
+
+.ornamento-linea {
+
+    width: min(680px, 90vw);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 22px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.ornamento-linea span {
+
+    height: 1px;
+
+    flex: 1;
+
+    max-width: 180px;
+
+    background:
+
+        linear-gradient(
+            to right,
+            transparent,
+            var(--dorado)
+        );
+
+}
+
+
+.ornamento-linea span:last-child {
+
+    background:
+
+        linear-gradient(
+            to left,
+            transparent,
+            var(--dorado)
+        );
+
+}
+
+
+.ornamento-linea p {
+
+    margin: 0;
+
+    padding: 0;
+
+    color: var(--dorado-oscuro);
+
+    font-size: 12px;
+
+    letter-spacing: 6px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   8. LOGO
+   ========================================================= */
+
+.logo-placeholder {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.logo {
+
+    width: min(470px, 78vw);
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    filter:
+
+        drop-shadow(
+            0 10px 18px
+            rgba(74, 41, 37, 0.08)
+        );
+
+}
+
+
+/* =========================================================
+   9. ORNAMENTO CENTRAL
+   ========================================================= */
+
+.ornamento-central {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin:
+
+        32px 0 20px;
+
+    color: var(--dorado);
+
+}
+
+
+.ornamento-central div {
+
+    width: 110px;
+
+    height: 1px;
+
+    background:
+
+        linear-gradient(
+            to right,
+            transparent,
+            var(--dorado),
+            transparent
+        );
+
+}
+
+
+.ornamento-central span {
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================================
+   10. FRASE PRINCIPAL
+   ========================================================= */
 
 .frase {
-    font-size: 22px;
+
+    max-width: 520px;
+
+    margin: 0 auto 34px;
 
     color: var(--cafe-medio);
 
-    margin: 20px auto 40px;
+    font-size: 23px;
 
-    line-height: 1.6;
+    line-height: 1.45;
+
+    font-weight: 500;
+
 }
 
 
-/* ========================================
-   BOTONES
-   ======================================== */
+/* =========================================================
+   11. BOTÓN
+   ========================================================= */
 
 .boton {
-    display: inline-block;
 
-    background-color: var(--rosa-oscuro);
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 225px;
+
+    padding: 16px 32px;
+
+    border:
+
+        1px solid
+        var(--dorado);
+
+    border-radius: 2px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--rosa-profundo),
+            var(--rosa-principal)
+        );
 
     color: var(--blanco);
 
     text-decoration: none;
 
-    padding: 15px 32px;
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
 
-    border-radius: 30px;
+    font-size: 15px;
 
-    font-size: 16px;
+    font-weight: 600;
 
-    font-weight: bold;
+    letter-spacing: 3px;
 
     transition:
         transform 0.3s ease,
-        background-color 0.3s ease,
+        background 0.3s ease,
         box-shadow 0.3s ease;
+
+    box-shadow:
+
+        0 10px 28px
+        rgba(74, 41, 37, 0.14);
+
 }
 
 
 .boton:hover {
-    background-color: var(--cafe);
 
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 
-    box-shadow:
-        0 10px 25px rgba(74, 37, 37, 0.2);
-}
-
-
-/* Botón dorado */
-
-.boton-dorado {
-    background-color: var(--dorado);
-}
-
-
-.boton-dorado:hover {
-    background-color: var(--cafe);
-}
-
-
-/* ========================================
-   MENÚ
-   ======================================== */
-
-.menu {
-    padding: 100px 7%;
-
-    text-align: center;
-}
-
-
-.subtitulo {
-    color: var(--dorado);
-
-    letter-spacing: 5px;
-
-    font-weight: bold;
-
-    font-size: 14px;
-
-    margin-bottom: 10px;
-}
-
-
-.menu h2,
-.pedido h2 {
-    font-size: 42px;
-
-    font-weight: normal;
-
-    margin-top: 10px;
-
-    color: var(--cafe);
-}
-
-
-/* ========================================
-   PRODUCTOS
-   ======================================== */
-
-.productos {
-    max-width: 1100px;
-
-    margin: 60px auto 0;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 30px;
-}
-
-
-.producto {
-    background-color: var(--blanco);
-
-    padding: 20px;
-
-    border-radius: 18px;
-
-    border: 1px solid var(--rosa-claro);
+    background:
+        var(--cafe);
 
     box-shadow:
-        0 10px 30px rgba(74, 37, 37, 0.08);
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        0 15px 35px
+        rgba(74, 41, 37, 0.2);
+
 }
 
 
-.producto:hover {
-    transform: translateY(-8px);
+/* =========================================================
+   12. DECORACIÓN DORADA INFERIOR
+   ========================================================= */
 
-    box-shadow:
-        0 18px 40px rgba(74, 37, 37, 0.15);
-}
+.dorado-inferior {
 
+    position: absolute;
 
-/* Espacio donde estarán las fotos */
+    bottom: 62px;
 
-.foto {
-    width: 100%;
+    left: 50%;
 
-    height: 230px;
+    transform: translateX(-50%);
 
     display: flex;
 
@@ -283,226 +518,1142 @@ body {
 
     justify-content: center;
 
+    gap: 20px;
+
+    color: var(--dorado);
+
+    font-family: Georgia, serif;
+
+    z-index: 10;
+
+}
+
+
+.dorado-inferior span:nth-child(1),
+.dorado-inferior span:nth-child(5) {
+
+    font-size: 25px;
+
+}
+
+
+.dorado-inferior span:nth-child(2),
+.dorado-inferior span:nth-child(4) {
+
+    font-size: 9px;
+
+}
+
+
+.dorado-inferior span:nth-child(3) {
+
+    font-size: 16px;
+
+}
+
+
+/* =========================================================
+   13. MENÚ
+   ========================================================= */
+
+.menu {
+
+    position: relative;
+
+    padding: 125px 7%;
+
+    text-align: center;
+
     background:
+
         linear-gradient(
-            135deg,
-            var(--rosa-claro),
-            var(--rosa-suave)
+            to bottom,
+            var(--crema),
+            #fffdf9
         );
 
-    border-radius: 14px;
-
-    font-size: 80px;
 }
 
 
-/* Nombre del producto */
+/* borde decorativo */
 
-.producto h3 {
-    font-size: 21px;
+.menu::before {
 
-    font-weight: normal;
+    content: "✦";
 
-    margin: 20px 0 10px;
+    position: absolute;
 
-    color: var(--cafe);
-}
+    top: 38px;
 
+    left: 50%;
 
-/* Precio */
+    transform: translateX(-50%);
 
-.producto p {
     color: var(--dorado);
 
     font-size: 20px;
 
-    font-weight: bold;
+}
+
+
+/* =========================================================
+   14. TÍTULO DEL MENÚ
+   ========================================================= */
+
+.titulo-seccion {
+
+    max-width: 760px;
+
+    margin:
+        0 auto 65px;
+
+}
+
+
+.decoracion {
+
+    display: block;
+
+    color: var(--dorado);
+
+    font-size: 25px;
+
+    margin-bottom: 14px;
+
+}
+
+
+.subtitulo {
 
     margin: 0;
+
+    color: var(--dorado-oscuro);
+
+    font-size: 12px;
+
+    letter-spacing: 6px;
+
+    font-weight: 600;
+
 }
 
 
-/* ========================================
-   SECCIÓN PEDIDO
-   ======================================== */
+.menu h2,
+.pedido h2 {
 
-.pedido {
-    text-align: center;
+    margin:
 
-    padding: 110px 20px;
+        12px 0 10px;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--rosa-claro),
-            var(--rosa-suave)
-        );
+    color: var(--cafe);
+
+    font-size: 55px;
+
+    line-height: 1;
+
+    font-weight: 500;
+
 }
 
 
-.pedido p {
-    font-size: 18px;
+.descripcion-seccion {
+
+    margin: 0 auto;
+
+    max-width: 500px;
 
     color: var(--cafe-medio);
 
-    line-height: 1.7;
+    font-size: 20px;
 
-    margin-bottom: 35px;
+    line-height: 1.5;
+
 }
 
 
-/* ========================================
-   INFORMACIÓN
-   ======================================== */
+/* =========================================================
+   15. PRODUCTOS
+   ========================================================= */
 
-.informacion {
+.productos {
+
+    max-width: 1180px;
+
+    margin: 0 auto;
+
     display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap: 40px;
+    gap: 42px;
 
-    padding: 90px 7%;
-
-    text-align: center;
-
-    background-color: var(--crema);
 }
 
 
-.informacion h3 {
+/* =========================================================
+   16. TARJETAS
+   ========================================================= */
+
+.producto {
+
+    position: relative;
+
+    padding: 12px;
+
+    background:
+        var(--blanco);
+
+    border:
+
+        1px solid
+        rgba(199, 160, 74, 0.42);
+
+    border-radius: 4px;
+
+    box-shadow:
+
+        0 12px 38px
+        rgba(74, 41, 37, 0.07);
+
+    transition:
+
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+
+/* pequeño detalle dorado */
+
+.producto::before {
+
+    content: "✦";
+
+    position: absolute;
+
+    top: 10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: var(--dorado);
+
+    font-size: 12px;
+
+    z-index: 2;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.3s ease;
+
+}
+
+
+.producto:hover {
+
+    transform:
+        translateY(-9px);
+
+    box-shadow:
+
+        0 20px 50px
+        rgba(74, 41, 37, 0.13);
+
+}
+
+
+.producto:hover::before {
+
+    opacity: 1;
+
+}
+
+
+/* =========================================================
+   17. FOTOS
+   ========================================================= */
+
+.foto {
+
+    width: 100%;
+
+    height: 285px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 2px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--rosa-claro),
+            var(--rosa-palido)
+        );
+
+    font-size: 80px;
+
+}
+
+
+.foto img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease;
+
+}
+
+
+.producto:hover .foto img {
+
+    transform:
+        scale(1.04);
+
+}
+
+
+/* =========================================================
+   18. INFORMACIÓN PRODUCTO
+   ========================================================= */
+
+.producto-info {
+
+    padding:
+
+        21px 10px 13px;
+
+}
+
+
+.producto h3 {
+
+    margin:
+
+        0 0 6px;
+
     color: var(--cafe);
-
-    font-size: 22px;
-
-    font-weight: normal;
-}
-
-
-.informacion p {
-    color: var(--cafe-medio);
-
-    margin: 8px 0;
-}
-
-
-/* ========================================
-   PIE DE PÁGINA
-   ======================================== */
-
-footer {
-    background-color: var(--cafe);
-
-    color: var(--crema);
-
-    text-align: center;
-
-    padding: 45px 20px;
-}
-
-
-footer p:first-child {
-    color: var(--dorado-claro);
 
     font-size: 27px;
 
-    margin-bottom: 10px;
+    line-height: 1.1;
+
+    font-weight: 600;
+
 }
 
 
-footer p:last-child {
-    color: #E8D7CF;
+.precio {
+
+    color: var(--dorado-oscuro);
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   19. SECCIÓN PEDIDO
+   ========================================================= */
+
+.pedido {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 130px 25px;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--rosa-claro),
+            var(--rosa-palido)
+        );
+
+}
+
+
+/* marco interior */
+
+.pedido::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 25px;
+
+    border:
+
+        1px solid
+        rgba(199, 160, 74, 0.4);
+
+    pointer-events: none;
+
+}
+
+
+.pedido::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 36px;
+
+    border:
+
+        1px solid
+        rgba(199, 160, 74, 0.18);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   20. SALPICADO DORADO PEDIDO
+   ========================================================= */
+
+.salpicado-pedido {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-bottom: 28px;
+
+    color: var(--dorado);
+
+    font-size: 20px;
+
+}
+
+
+.salpicado-pedido span:nth-child(1),
+.salpicado-pedido span:nth-child(5) {
+
+    font-size: 28px;
+
+}
+
+
+.salpicado-pedido span:nth-child(2),
+.salpicado-pedido span:nth-child(4) {
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   21. TEXTO PEDIDO
+   ========================================================= */
+
+.texto-pedido {
+
+    max-width: 520px;
+
+    margin:
+
+        0 auto 36px;
+
+    color: var(--cafe-medio);
+
+    font-size: 21px;
+
+    line-height: 1.55;
+
+}
+
+
+/* =========================================================
+   22. INFORMACIÓN
+   ========================================================= */
+
+.informacion {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 60px;
+
+    padding: 105px 7%;
+
+    text-align: center;
+
+    background:
+
+        var(--crema);
+
+}
+
+
+/* =========================================================
+   23. BLOQUES DE INFORMACIÓN
+   ========================================================= */
+
+.info {
+
+    position: relative;
+
+    padding: 20px;
+
+}
+
+
+/* separadores */
+
+.info:not(:last-child)::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 20px;
+
+    right: -30px;
+
+    width: 1px;
+
+    height: 80%;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--dorado),
+            transparent
+        );
+
+    opacity: 0.45;
+
+}
+
+
+.icono {
+
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: var(--dorado);
+
+    font-size: 27px;
+
+}
+
+
+.info h3 {
+
+    margin:
+
+        0 0 8px;
+
+    color: var(--cafe);
+
+    font-size: 29px;
+
+    font-weight: 600;
+
+}
+
+
+.info p {
+
+    margin: 4px 0;
+
+    color: var(--cafe-medio);
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================================
+   24. FOOTER
+   ========================================================= */
+
+footer {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 65px 25px;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #4A2925,
+            #5A332D
+        );
+
+    color: var(--crema);
+
+}
+
+
+/* línea superior */
+
+footer::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 120px;
+
+    height: 1px;
+
+    background:
+        var(--dorado);
+
+}
+
+
+/* =========================================================
+   25. LOGO FOOTER
+   ========================================================= */
+
+.footer-logo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    line-height: 0.8;
+
+}
+
+
+.footer-logo span:first-child {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 60px;
+
+    color: var(--crema);
+
+}
+
+
+.footer-logo span:last-child {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 58px;
+
+    color: var(--rosa);
+
+    margin-left: 35px;
+
+}
+
+
+/* =========================================================
+   26. ORNAMENTO FOOTER
+   ========================================================= */
+
+.footer-ornamento {
+
+    margin:
+
+        28px 0 22px;
+
+    color: var(--dorado);
+
+    letter-spacing: 10px;
+
+    font-size: 16px;
+
+}
+
+
+footer p {
 
     margin: 0;
+
+    color: #E8D8D1;
+
+    font-size: 17px;
+
 }
 
 
-/* ========================================
-   ADAPTACIÓN PARA CELULARES
-   ======================================== */
+/* =========================================================
+   27. EFECTO DORADO SALPICADO
+   ========================================================= */
 
-@media (max-width: 768px) {
+.hero-contenido::before {
 
-    .hero {
-        min-height: 80vh;
+    content:
+        "·   ✦      ·      ✧   ·       ✦      ·";
 
-        padding: 50px 20px;
+    position: absolute;
+
+    top: -100px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 100vw;
+
+    color: var(--dorado);
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    letter-spacing: 15px;
+
+    opacity: 0.55;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+
+}
+
+
+.hero-contenido::after {
+
+    content:
+        "✧      ·      ✦   ·      ✧      ·      ✦";
+
+    position: absolute;
+
+    bottom: -100px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 100vw;
+
+    color: var(--dorado);
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    letter-spacing: 12px;
+
+    opacity: 0.45;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   28. TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+
+    .productos {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
     }
 
 
-    .hero h1 {
-        font-size: 55px;
+    .informacion {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 20px;
+
     }
 
 
-    .frase {
-        font-size: 18px;
-    }
+    .info:not(:last-child)::after {
 
+        right: -10px;
 
-    .hero::before {
-        left: 8%;
-    }
-
-
-    .hero::after {
-        right: 8%;
-    }
-
-
-    .menu {
-        padding: 75px 20px;
     }
 
 
     .menu h2,
     .pedido h2 {
-        font-size: 32px;
-    }
 
+        font-size: 48px;
 
-    .productos {
-        grid-template-columns: 1fr;
-
-        max-width: 430px;
-    }
-
-
-    .informacion {
-        grid-template-columns: 1fr;
-
-        padding: 70px 20px;
-    }
-
-
-    .foto {
-        height: 250px;
     }
 
 }
 
 
-/* ========================================
-   CELULARES MUY PEQUEÑOS
-   ======================================== */
+/* =========================================================
+   29. CELULAR
+   ========================================================= */
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
 
-    .hero h1 {
-        font-size: 45px;
+
+    .hero {
+
+        min-height: 100svh;
+
+        padding:
+
+            110px 20px;
+
     }
 
 
-    .pequeno {
-        font-size: 11px;
+    .hero::before {
+
+        inset: 17px;
+
+    }
+
+
+    .hero::after {
+
+        inset: 27px;
+
+    }
+
+
+    .dorado-superior {
+
+        top: 47px;
+
+        gap: 12px;
+
+    }
+
+
+    .dorado-inferior {
+
+        bottom: 47px;
+
+        gap: 12px;
+
+    }
+
+
+    .ornamento-linea {
+
+        width: 90vw;
+
+        gap: 9px;
+
+        margin-bottom: 22px;
+
+    }
+
+
+    .ornamento-linea p {
+
+        font-size: 9px;
 
         letter-spacing: 3px;
+
+    }
+
+
+    .ornamento-linea span {
+
+        max-width: 70px;
+
+    }
+
+
+    .logo {
+
+        width: 82vw;
+
+        max-width: 390px;
+
+    }
+
+
+    .ornamento-central {
+
+        margin:
+
+            25px 0 18px;
+
+    }
+
+
+    .ornamento-central div {
+
+        width: 65px;
+
+    }
+
+
+    .frase {
+
+        max-width: 300px;
+
+        font-size: 19px;
+
     }
 
 
     .boton {
-        padding: 14px 24px;
+
+        min-width: 195px;
+
+        padding: 14px 22px;
+
+        font-size: 12px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .menu {
+
+        padding:
+
+            95px 20px;
+
+    }
+
+
+    .menu h2,
+    .pedido h2 {
+
+        font-size: 40px;
+
+    }
+
+
+    .subtitulo {
+
+        font-size: 10px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .descripcion-seccion {
+
+        font-size: 18px;
+
+    }
+
+
+    .productos {
+
+        grid-template-columns: 1fr;
+
+        max-width: 430px;
+
+        gap: 30px;
+
+    }
+
+
+    .foto {
+
+        height: 290px;
+
+    }
+
+
+    .producto h3 {
+
+        font-size: 25px;
+
+    }
+
+
+    .informacion {
+
+        grid-template-columns: 1fr;
+
+        padding:
+
+            80px 20px;
+
+        gap: 35px;
+
+    }
+
+
+    .info:not(:last-child)::after {
+
+        top: auto;
+
+        right: auto;
+
+        bottom: -18px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: 80px;
+
+        height: 1px;
+
+        background:
+
+            linear-gradient(
+                to right,
+                transparent,
+                var(--dorado),
+                transparent
+            );
+
+    }
+
+
+    .pedido {
+
+        padding:
+
+            105px 20px;
+
+    }
+
+
+    .pedido::before {
+
+        inset: 18px;
+
+    }
+
+
+    .pedido::after {
+
+        inset: 28px;
+
+    }
+
+
+    .texto-pedido {
+
+        font-size: 19px;
+
+    }
+
+
+    .footer-logo span:first-child {
+
+        font-size: 52px;
+
+    }
+
+
+    .footer-logo span:last-child {
+
+        font-size: 50px;
+
+    }
+
+}
+
+
+/* =========================================================
+   30. PANTALLAS MUY PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+
+    .hero {
+
+        padding-left: 15px;
+
+        padding-right: 15px;
+
+    }
+
+
+    .ornamento-linea p {
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .logo {
+
+        width: 88vw;
+
+    }
+
+
+    .frase {
+
+        font-size: 18px;
+
+    }
+
+
+    .menu h2,
+    .pedido h2 {
+
+        font-size: 36px;
+
     }
 
 }
